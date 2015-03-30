@@ -16,7 +16,8 @@ class IndexController extends AbstractActionController
 {
     public function indexAction()
     {
-        $nome="School of Net";
-        return new ViewModel(array('nome'=>$nome));
+       $categoriaService=$this->getServiceLocator()->get('Livraria\Model\CategoriaService');
+        $categorias=$categoriaService->fetchAll();
+        return new ViewModel(array('categorias'=>$categorias));
     }
 }
